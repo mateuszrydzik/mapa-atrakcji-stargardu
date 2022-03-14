@@ -1,0 +1,16 @@
+MAPA STARGARD
+
+To-do:
+warstwy:
+	rozrywka (sport kino jezioro)
+	szlaki turystyczne (piesze rowerowe kajaki)
+	moje ulubione miejsca(robi wrazenie)
+stylizacja
+guziki do zmiany warstw
+opis (autor pomysł; wszystko zawarte na stronie)
+
+DONE:
+warstwy:
+	gastronomia
+	parki
+			obiekty turystyczne(zabytki muzea ławki w parku)
