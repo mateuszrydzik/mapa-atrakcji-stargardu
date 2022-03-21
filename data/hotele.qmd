@@ -1,9 +1,9 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.20.3-Odense">
+<qgis version="3.22.2-Bia³owie¿a">
   <identifier></identifier>
   <parentidentifier></parentidentifier>
   <language></language>
-  <type></type>
+  <type>dataset</type>
   <title></title>
   <abstract></abstract>
   <links/>
