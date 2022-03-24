@@ -13,6 +13,7 @@ import szlakiTurystyczne from "./data/szlaki_turystyczne.geojson" assert { type:
 import gastronomia from "./data/gastronomia.geojson" assert { type: "json" }
 import tourism from "./data/tourism.geojson" assert { type: "json" }
 
+
 const iconHotel = L.icon({
   iconUrl: "./img/bed.png",
   iconSize: [25, 25]
@@ -33,15 +34,14 @@ const iconTourism = L.icon({
   iconSize: [25, 25]
 })
 
-L.geoJSON(parki, {
-  color: 'green',
-  fillOpacity: 0.2,
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup('<b>'+feature.properties.name+'</b>'
-    );
-}}).addTo(map);
+let hotelButton = document.getElementById("hotelButton")
+let rozrywkiButton = document.getElementById("rozrywkiButton")
+let parkiButton = document.getElementById("parkiButton")
+let szlakiButton = document.getElementById("szlakiButton")
+let gastroButton = document.getElementById("gastroButton")
+let tourismButton = document.getElementById("tourismButton")
 
-L.geoJSON(hotele, {
+const hotelLayer = L.geoJSON(hotele, {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, 
       {icon: iconHotel});
@@ -49,9 +49,9 @@ L.geoJSON(hotele, {
   onEachFeature: function (feature, layer) {
   layer.bindPopup('<b>'+feature.properties.name+'</b>'
   );
-}}).addTo(map);
+}});
 
-L.geoJSON(rozrywki, {
+const rozrywkiLayer = L.geoJSON(rozrywki, {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, 
       {icon: iconEnt});
@@ -59,24 +59,24 @@ L.geoJSON(rozrywki, {
   onEachFeature: function (feature, layer) {
     layer.bindPopup('<b>'+feature.properties.nazwa+'</b>'
     );
-}}).addTo(map);
+}});
 
-L.geoJSON(parki, {
+const parkiLayer = L.geoJSON(parki, {
   color: 'green',
   fillOpacity: 0.2,
   onEachFeature: function (feature, layer) {
     layer.bindPopup('<b>'+feature.properties.name+'</b>'
     );
-}}).addTo(map);
+}});
 
-L.geoJSON(szlakiTurystyczne, {
+const szlakiLayer = L.geoJSON(szlakiTurystyczne, {
   color: 'red',
   onEachFeature: function (feature, layer) {
     layer.bindPopup('<b>'+feature.properties.name+'</b>'
     );
-}}).addTo(map);
+}});
 
-L.geoJSON(gastronomia, {
+const gastroLayer = L.geoJSON(gastronomia, {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, 
       {icon: iconFood});
@@ -84,9 +84,9 @@ L.geoJSON(gastronomia, {
   onEachFeature: function (feature, layer) {
   layer.bindPopup('<b>'+feature.properties.name+'</b>'
   );
-}}).addTo(map);
+}});
 
-L.geoJSON(tourism, {
+const tourismLayer = L.geoJSON(tourism, {
   pointToLayer: function (feature, latlng) {
     return L.marker(latlng, 
       {icon: iconTourism});
@@ -94,4 +94,48 @@ L.geoJSON(tourism, {
   onEachFeature: function (feature, layer) {
   layer.bindPopup('<b>'+feature.properties.name+'</b>'
   );
-}}).addTo(map);
+}});
+
+tourismLayer.addTo(map)
+
+hotelButton.addEventListener("click", function(){
+  if (map.hasLayer(hotelLayer)){
+    map.removeLayer(hotelLayer)
+  } else {
+    hotelLayer.addTo(map);
+}})
+
+rozrywkiButton.addEventListener("click", function(){
+  if (map.hasLayer(rozrywkiLayer)){
+    map.removeLayer(rozrywkiLayer)
+  } else {
+    rozrywkiLayer.addTo(map);
+}})
+
+gastroButton.addEventListener("click", function(){
+  if (map.hasLayer(gastroLayer)){
+    map.removeLayer(gastroLayer)
+  } else {
+    gastroLayer.addTo(map);
+}})
+
+tourismButton.addEventListener("click", function(){
+  if (map.hasLayer(tourismLayer)){
+    map.removeLayer(tourismLayer)
+  } else {
+    tourismLayer.addTo(map);
+}})
+
+parkiButton.addEventListener("click", function(){
+  if (map.hasLayer(parkiLayer)){
+    map.removeLayer(parkiLayer)
+  } else {
+    parkiLayer.addTo(map);
+}})
+
+szlakiButton.addEventListener("click", function(){
+  if (map.hasLayer(szlakiLayer)){
+    map.removeLayer(szlakiLayer)
+  } else {
+    szlakiLayer.addTo(map);
+}})
