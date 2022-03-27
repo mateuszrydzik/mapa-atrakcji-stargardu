@@ -2,17 +2,17 @@ const token = "pk.eyJ1IjoicGFubWlzdGVyZWsiLCJhIjoiY2wxMHNkdXI3MDRpaTNkcW5yaXVjdj
 let map = L.map('map').setView([53.33, 15.04], 13);
 
 
-  var basemapDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+var darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       });
 
-var basemapLight = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+var lightBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
       });
 
-basemapDark.addTo(map)
+lightBasemap.addTo(map)
 
 
 import parki from "./data/parki.geojson" assert { type: "json" }
@@ -49,6 +49,8 @@ let parkiButton = document.getElementById("parkiButton")
 let szlakiButton = document.getElementById("szlakiButton")
 let gastroButton = document.getElementById("gastroButton")
 let tourismButton = document.getElementById("tourismButton")
+let lightButton = document.getElementById("lightButton")
+let darkButton = document.getElementById("darkButton")
 
 const hotelLayer = L.geoJSON(hotele, {
   pointToLayer: function (feature, latlng) {
@@ -137,14 +139,26 @@ tourismButton.addEventListener("click", function(){
 
 parkiButton.addEventListener("click", function(){
   if (map.hasLayer(parkiLayer)){
-    map.removeLayer(parkiLayer)
+    map.removeLayer(parkiLayer);
   } else {
     parkiLayer.addTo(map);
-}})
+}});
 
-szlakiButton.addEventListener("click", function(){
-  if (map.hasLayer(szlakiLayer)){
-    map.removeLayer(szlakiLayer)
-  } else {
-    szlakiLayer.addTo(map);
-}})
+
+lightButton.addEventListener("click", function() {
+  if (map.hasLayer(darkBasemap)) {
+    map.removeLayer(darkBasemap);
+  }
+  $('.navbar').removeClass('navbar navbar-expand-lg navbar-dark bg-dark').addClass('navbar navbar-expand-lg navbar-light bg-light')
+  $('img').each((index, img) => img.style.filter = "invert(0)");
+  lightBasemap.addTo(map);
+});
+
+darkButton.addEventListener("click", function() {
+  if (map.hasLayer(lightBasemap)) {
+    map.removeLayer(lightBasemap);
+  }
+  $('.navbar').removeClass('navbar navbar-expand-lg navbar-light bg-light').addClass('navbar navbar-expand-lg navbar-dark bg-dark')
+  $('img').each((index, img) => img.style.filter = "invert(1)");
+  darkBasemap.addTo(map)
+});
