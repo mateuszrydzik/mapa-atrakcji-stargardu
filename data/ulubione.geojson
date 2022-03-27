@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "ulubione",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "nazwa": "Stargardzkie bulwary", "opis": "Szeroka dolina nad złączeniem Iny, idealne miejsce na piknik w ciepłe dni. Nazywane potocznie bulwarami. Dosyć ukryte położenie czyni to miejsce mało zaludnionym, jednak brak infrastruktury przyczynia się do dużego zaśmiecenia regionu. " }, "geometry": { "type": "Point", "coordinates": [ 15.042667709861767, 53.348467861838415 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Moje liceum", "opis": "1LO im. Adama Mickiewicza. Uczęszczałem w latach 2016-2019." }, "geometry": { "type": "Point", "coordinates": [ 15.041577575560733, 53.333810642336502 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Górka", "opis": "Dawne miejsce spotkań młodzieży, znajdowało się na terenie Parku (ZS1). Obecnie wzniesienie zostało zrównane z ziemią." }, "geometry": { "type": "Point", "coordinates": [ 15.03585354711597, 53.33488444385204 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Jezioro Miedwie", "opis": "Malownicze miejsce blisko miasta. Latem znajduje się tam wiele atrakcji i form relaksu." }, "geometry": { "type": "Point", "coordinates": [ 14.924729011008623, 53.349920724622173 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Garaż", "opis": "Nostalgiczne miejsce, będące siedzibą wielu licealnych spotkań i debat o różnych podłożach oraz okazjonalnych biesiad" }, "geometry": { "type": "Point", "coordinates": [ 15.013533788329921, 53.332447701482828 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Boisko przy SP4", "opis": "Stargardzka mekka koszykówki, o każdej porze znajdzie się chociaż jedna osoba ćwicząca wsady. Popularne miejsce pośród wielu juniorów lokalnego zespołu Spójni. " }, "geometry": { "type": "Point", "coordinates": [ 15.011014293646234, 53.342146644347636 ] } },
+{ "type": "Feature", "properties": { "nazwa": "Ścieżka w polu", "opis": "Kamienna ściezka pośród pól uprawnych w Strachocinie. Trasa o przepięknych krajobrazach. Ulubione miejsce na spacer według mojego psa." }, "geometry": { "type": "Point", "coordinates": [ 15.09362737161419, 53.331808500655903 ] } }
+]
+}
