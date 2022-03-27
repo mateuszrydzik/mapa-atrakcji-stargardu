@@ -9,22 +9,15 @@ const lightMapbox = L.tileLayer('https://api.mapbox.com/styles/v1/panmisterek/cl
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoicGFubWlzdGVyZWsiLCJhIjoiY2wxMHNkdXI3MDRpaTNkcW5yaXVjdjExNyJ9.S-8TFOSeSs_LcfW9Zicm1g'
 });
-const darkMapbox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+const darkMapbox = L.tileLayer('https://api.mapbox.com/styles/v1/panmisterek/cl19eduhp002a14pkaaijaz92/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoicGFubWlzdGVyZWsiLCJhIjoiY2wxMHNkdXI3MDRpaTNkcW5yaXVjdjExNyJ9.S-8TFOSeSs_LcfW9Zicm1g', {
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   maxZoom: 18,
-  id: 'mapbox/dark',
   tileSize: 512,
   zoomOffset: -1,
   accessToken: 'pk.eyJ1IjoicGFubWlzdGVyZWsiLCJhIjoiY2wxMHNkdXI3MDRpaTNkcW5yaXVjdjExNyJ9.S-8TFOSeSs_LcfW9Zicm1g'
 });
 
-var darkBasemap = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-      });
-
 lightMapbox.addTo(map)
-
 
 import parki from "./data/parki.geojson" assert { type: "json" }
 import hotele from "./data/hotele.geojson" assert { type: "json" }
@@ -157,8 +150,8 @@ parkiButton.addEventListener("click", function(){
 
 
 lightButton.addEventListener("click", function() {
-  if (map.hasLayer(darkBasemap)) {
-    map.removeLayer(darkBasemap);
+  if (map.hasLayer(darkMapbox)) {
+    map.removeLayer(darkMapbox);
   }
   $('.navbar').removeClass('navbar navbar-expand-lg navbar-dark bg-dark').addClass('navbar navbar-expand-lg navbar-light bg-light')
   $('img').each((index, img) => img.style.filter = "invert(0)");
@@ -171,5 +164,5 @@ darkButton.addEventListener("click", function() {
   }
   $('.navbar').removeClass('navbar navbar-expand-lg navbar-light bg-light').addClass('navbar navbar-expand-lg navbar-dark bg-dark')
   $('img').each((index, img) => img.style.filter = "invert(1)");
-  darkBasemap.addTo(map)
+  darkMapbox.addTo(map)
 });
