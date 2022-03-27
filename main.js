@@ -1,10 +1,19 @@
 const token = "pk.eyJ1IjoicGFubWlzdGVyZWsiLCJhIjoiY2wxMHNkdXI3MDRpaTNkcW5yaXVjdjExNyJ9.S-8TFOSeSs_LcfW9Zicm1g"
 let map = L.map('map').setView([53.33, 15.04], 13);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-      }).addTo(map);  
+
+  var basemapDark = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+var basemapLight = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+basemapDark.addTo(map)
+
 
 import parki from "./data/parki.geojson" assert { type: "json" }
 import hotele from "./data/hotele.geojson" assert { type: "json" }
@@ -57,7 +66,7 @@ const rozrywkiLayer = L.geoJSON(rozrywki, {
       {icon: iconEnt});
     },
   onEachFeature: function (feature, layer) {
-    layer.bindPopup('<b>'+feature.properties.nazwa+'</b>'
+    layer.bindPopup('<b>'+feature.properties.nazwa+'<br>'+feature.properties.rozrywka+'</b>'
     );
 }});
 
@@ -92,7 +101,7 @@ const tourismLayer = L.geoJSON(tourism, {
       {icon: iconTourism});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.name+'</b>'
+  layer.bindPopup('<b>'+feature.properties.name+'<br>'+feature.properties.tourism+'</b>'
   );
 }});
 

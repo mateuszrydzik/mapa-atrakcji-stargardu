@@ -3,12 +3,16 @@
 "name": "rozrywki",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "rozrywka": "sport", "nazwa": "PGE Spójnia Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.021151351116746, 53.341568902460438 ] } },
-{ "type": "Feature", "properties": { "rozrywka": "sport", "nazwa": "Błękitni Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.01931032261095, 53.342292742422721 ] } },
-{ "type": "Feature", "properties": { "rozrywka": "sport", "nazwa": "Kluczevia Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.026259082641973, 53.294667395907254 ] } },
-{ "type": "Feature", "properties": { "rozrywka": "sport", "nazwa": "LKS Pomorze Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.034566162485199, 53.35246541520975 ] } },
-{ "type": "Feature", "properties": { "rozrywka": "", "nazwa": "Amfiteatr" }, "geometry": { "type": "Point", "coordinates": [ 15.040487763319391, 53.340255235589581 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "koszykówka", "nazwa": "PGE Spójnia Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.021151351116746, 53.341568902460438 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "piłka nożna", "nazwa": "Błękitni Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.01931032261095, 53.342292742422721 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "piłka nożna", "nazwa": "Kluczevia Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.026259082641973, 53.294667395907254 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "lekkoatletyka", "nazwa": "LKS Pomorze Stargard" }, "geometry": { "type": "Point", "coordinates": [ 15.034566162485199, 53.35246541520975 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "", "nazwa": "Amfiteatr miejski" }, "geometry": { "type": "Point", "coordinates": [ 15.040487763319391, 53.340255235589581 ] } },
 { "type": "Feature", "properties": { "rozrywka": "kino", "nazwa": "Stargardzkie Centrum Kultury" }, "geometry": { "type": "Point", "coordinates": [ 15.036749577389937, 53.341042770332209 ] } },
-{ "type": "Feature", "properties": { "rozrywka": null, "nazwa": "Rynek Staromiejski" }, "geometry": { "type": "Point", "coordinates": [ 15.045598301290479, 53.33698764885979 ] } }
+{ "type": "Feature", "properties": { "rozrywka": "", "nazwa": "Rynek Staromiejski" }, "geometry": { "type": "Point", "coordinates": [ 15.045598301290479, 53.33698764885979 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "kręgielnia, bilard, pub", "nazwa": "Kręgielnia Rondo" }, "geometry": { "type": "Point", "coordinates": [ 15.036961671648665, 53.339041977334723 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "klub nocny", "nazwa": "The Club" }, "geometry": { "type": "Point", "coordinates": [ 15.035402432103609, 53.339534354988103 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "klub nocny", "nazwa": "Tokio" }, "geometry": { "type": "Point", "coordinates": [ 15.037149529723409, 53.33922840856453 ] } },
+{ "type": "Feature", "properties": { "rozrywka": "klub nocny", "nazwa": "Mango" }, "geometry": { "type": "Point", "coordinates": [ 15.035017520192541, 53.339382706827436 ] } }
 ]
 }
