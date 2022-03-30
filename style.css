@@ -1,6 +1,6 @@
 #map
 {
-    height: 87%;
+    height: 86.5%;
 
 }
 
@@ -22,4 +22,9 @@ html, body
 img{
     margin-right: 10px;
     margin-left: 10px;
+}
+
+.leaflet-popup-content-wrapper{
+    background: #343a40;
+    color: #fff;
 }

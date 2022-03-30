@@ -24,7 +24,7 @@ lightMapbox.addTo(map)
 import parki from "./data/parki.geojson" assert { type: "json" }
 import hotele from "./data/hotele.geojson" assert { type: "json" }
 import rozrywki from "./data/rozrywki.geojson" assert { type: "json" }
-import szlakiTurystyczne from "./data/szlaki_turystyczne.geojson" assert { type: "json" }
+//import szlakiTurystyczne from "./data/szlaki_turystyczne.geojson" assert { type: "json" } 
 import gastronomia from "./data/gastronomia.geojson" assert { type: "json" }
 import tourism from "./data/tourism.geojson" assert { type: "json" }
 import ulubione from "./data/ulubione.geojson" assert { type : "json" }
@@ -100,12 +100,12 @@ const parkiLayer = L.geoJSON(parki, {
     );
 }});
 
-const szlakiLayer = L.geoJSON(szlakiTurystyczne, {
-  color: 'red',
-  onEachFeature: function (feature, layer) {
-    layer.bindPopup('<b>'+feature.properties.name+'</b>'
-    );
-}});
+// const szlakiLayer = L.geoJSON(szlakiTurystyczne, {
+//   color: 'red',
+//   onEachFeature: function (feature, layer) {
+//     layer.bindPopup('<b>'+feature.properties.name+'</b>'
+//     );
+// }});
 
 const gastroLayer = L.geoJSON(gastronomia, {
   pointToLayer: function (feature, latlng) {
@@ -123,7 +123,7 @@ const tourismLayer = L.geoJSON(tourism, {
       {icon: iconTourism});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.name+'<br>'+feature.properties.tourism+'</b>'
+  layer.bindPopup('<b>'+feature.properties.name+'</b><br>'+feature.properties.tourism
   );
 }});
 
@@ -146,10 +146,7 @@ hotelButton.addEventListener("click", function(){
     map.removeLayer(hotelLayer)
   } else {
     hotelLayer.addTo(map);
-  } if (map.hasLayer(darkMapbox)) {
-    //$('img').each((index, img) => img.style.filter = "invert(1)");
-  }
-})
+}})
 
 rozrywkiButton.addEventListener("click", function(){
   if (map.hasLayer(rozrywkiLayer)){
