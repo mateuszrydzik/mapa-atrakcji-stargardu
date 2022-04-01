@@ -1,6 +1,6 @@
 #map
 {
-    height: 86.5%;
+    height: 87%;
 
 }
 
@@ -25,6 +25,18 @@ img{
 }
 
 .leaflet-popup-content-wrapper{
+    font-size: medium;
+    text-align: center;
+    box-shadow: none;
     background: #343a40;
     color: #fff;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+.leaflet-popup-tip{
+    background: #343a40;
+}
+
+.modal-content{
+    text-align:justify ;
 }

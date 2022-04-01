@@ -31,38 +31,40 @@ import ulubione from "./data/ulubione.geojson" assert { type : "json" }
 
 //zmienne z ikonami markerów
 const iconHotel = L.icon({
-  iconUrl: "./img/bed.png",
+  iconUrl: "./img/bed_c.png",
   iconSize: [25, 25]
 })
 
 const iconEnt = L.icon({
-  iconUrl: "./img/entertainment.png",
+  iconUrl: "./img/entertainment_c.png",
   iconSize: [25, 25]
 })
 
 const iconFood = L.icon({
-  iconUrl: "./img/restaurant.png",
+  iconUrl: "./img/restaurant_c.png",
   iconSize: [25, 25]
 })
 
 const iconTourism = L.icon({
-  iconUrl: "./img/obelisk.png",
+  iconUrl: "./img/obelisk_c.png",
   iconSize: [25, 25]
 })
 
 const iconUlubione = L.icon({
-  iconUrl: "./img/heart.png",
+  iconUrl: "./img/heart_c.png",
   iconSize: [25, 25]
 })
+
+
 
 //zmienne odnoszące się do elementów HTML
 //w tym przypadku przycisków na stronie
 
 //przyciski dodawania warstw
 let hotelButton = document.getElementById("hotelButton")
+//let hotelButton = $("#hotelButton")[0]
 let rozrywkiButton = document.getElementById("rozrywkiButton")
 let parkiButton = document.getElementById("parkiButton")
-let szlakiButton = document.getElementById("szlakiButton")
 let gastroButton = document.getElementById("gastroButton")
 let tourismButton = document.getElementById("tourismButton")
 
@@ -74,11 +76,11 @@ let darkButton = document.getElementById("darkButton")
 //zmienne z warstwami wektorowymi
 const hotelLayer = L.geoJSON(hotele, {
   pointToLayer: function (feature, latlng) {
-    return L.marker(latlng, 
-      {icon: iconHotel});
+      return L.marker(latlng, 
+        {icon: iconHotel});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.name+'</b>'
+  layer.bindPopup('<h5>'+feature.properties.name+'</h5>'
   );
 }});
 
@@ -88,7 +90,7 @@ const rozrywkiLayer = L.geoJSON(rozrywki, {
       {icon: iconEnt});
     },
   onEachFeature: function (feature, layer) {
-    layer.bindPopup('<b>'+feature.properties.nazwa+'<br>'+feature.properties.rozrywka+'</b>'
+    layer.bindPopup('<h5>'+feature.properties.nazwa+'</h5>'+feature.properties.rozrywka
     );
 }});
 
@@ -96,16 +98,9 @@ const parkiLayer = L.geoJSON(parki, {
   color: 'green',
   fillOpacity: 0.2,
   onEachFeature: function (feature, layer) {
-    layer.bindPopup('<b>'+feature.properties.name+'</b>'
+    layer.bindPopup('<h5>'+feature.properties.name+'</h5>'
     );
 }});
-
-// const szlakiLayer = L.geoJSON(szlakiTurystyczne, {
-//   color: 'red',
-//   onEachFeature: function (feature, layer) {
-//     layer.bindPopup('<b>'+feature.properties.name+'</b>'
-//     );
-// }});
 
 const gastroLayer = L.geoJSON(gastronomia, {
   pointToLayer: function (feature, latlng) {
@@ -113,7 +108,7 @@ const gastroLayer = L.geoJSON(gastronomia, {
       {icon: iconFood});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.name+'</b>'
+  layer.bindPopup('<h5>'+feature.properties.name+'</h5>'
   );
 }});
 
@@ -123,7 +118,7 @@ const tourismLayer = L.geoJSON(tourism, {
       {icon: iconTourism});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.name+'</b><br>'+feature.properties.tourism
+  layer.bindPopup('<h5>'+feature.properties.name+'</h5>'+feature.properties.tourism
   );
 }});
 
@@ -133,7 +128,7 @@ const ulubioneLayer = L.geoJSON(ulubione, {
       {icon: iconUlubione});
     },
   onEachFeature: function (feature, layer) {
-  layer.bindPopup('<b>'+feature.properties.nazwa+'<br>'+feature.properties.opis+'</b>'
+  layer.bindPopup('<h5>'+feature.properties.nazwa+'</h5>'+feature.properties.opis
   );
 }});
 
@@ -141,68 +136,88 @@ const ulubioneLayer = L.geoJSON(ulubione, {
 tourismLayer.addTo(map)
 
 //eventy do zmiany widoczności warstw
-hotelButton.addEventListener("click", function(){
-  if (map.hasLayer(hotelLayer)){
-    map.removeLayer(hotelLayer)
-  } else {
-    hotelLayer.addTo(map);
-}})
+function addLayers(layer){
+  switch(layer){
+    case "Hotel":{
+      if (map.hasLayer(hotelLayer)){
+        map.removeLayer(hotelLayer);
+      } else {
+        hotelLayer.addTo(map);
+    }
+    break;
+  } case "Rozrywki":{
+      if (map.hasLayer(rozrywkiLayer)){
+        map.removeLayer(rozrywkiLayer)
+      } else {
+        rozrywkiLayer.addTo(map);
+      }
+    break;
+  } case "Gastro":{
+      if (map.hasLayer(gastroLayer)){
+        map.removeLayer(gastroLayer)
+      } else {
+        gastroLayer.addTo(map);
+      }
+    break;
+  } case "Tourism":{
+      if (map.hasLayer(tourismLayer)){
+        map.removeLayer(tourismLayer)
+      } else {
+        tourismLayer.addTo(map);
+      }
+    break;
+  } case "Parki":{
+      if (map.hasLayer(parkiLayer)){
+        map.removeLayer(parkiLayer);
+      } else {
+        parkiLayer.addTo(map);
+    }
+    break;
+  } case "Ulubione":
+      if (map.hasLayer(ulubioneLayer)) {
+        map.removeLayer(ulubioneLayer);
+      } else {
+        ulubioneLayer.addTo(map);
+    }
+    break
+}}
 
-rozrywkiButton.addEventListener("click", function(){
-  if (map.hasLayer(rozrywkiLayer)){
-    map.removeLayer(rozrywkiLayer)
-  } else {
-    rozrywkiLayer.addTo(map);
-}})
-
-gastroButton.addEventListener("click", function(){
-  if (map.hasLayer(gastroLayer)){
-    map.removeLayer(gastroLayer)
-  } else {
-    gastroLayer.addTo(map);
-}})
-
-tourismButton.addEventListener("click", function(){
-  if (map.hasLayer(tourismLayer)){
-    map.removeLayer(tourismLayer)
-  } else {
-    tourismLayer.addTo(map);
-}})
-
-parkiButton.addEventListener("click", function(){
-  if (map.hasLayer(parkiLayer)){
-    map.removeLayer(parkiLayer);
-  } else {
-    parkiLayer.addTo(map);
-}});
-
-ulubioneButton.addEventListener("click", function() {
-  if (map.hasLayer(ulubioneLayer)) {
-    map.removeLayer(ulubioneLayer);
-  } else {
-    ulubioneLayer.addTo(map);
-  }
-})
+hotelButton.addEventListener("click", () => addLayers("Hotel"));
+rozrywkiButton.addEventListener("click", () => addLayers("Rozrywki"));
+gastroButton.addEventListener("click", () => addLayers("Gastro"));
+tourismButton.addEventListener("click", () => addLayers("Tourism"));
+parkiButton.addEventListener("click", () => addLayers("Parki"));
+ulubioneButton.addEventListener("click", () => addLayers("Ulubione"))
 
 //eventy do zmian stylu
-lightButton.addEventListener("click", function() {
-  if (map.hasLayer(darkMapbox)) {
-    map.removeLayer(darkMapbox);
-  }
-  $('.navbar').removeClass('navbar navbar-expand-lg navbar-dark bg-dark').addClass('navbar navbar-expand-lg navbar-light bg-light');
-  $('img').each((index, img) => img.style.filter = "invert(0)");
-  lightMapbox.addTo(map);
-});
-
-darkButton.addEventListener("click", function() {
-  if (map.hasLayer(darkMapbox)){
-    //pass
-  } else {
-    if (map.hasLayer(lightMapbox)) {
-      map.removeLayer(lightMapbox);
+function toggleDarkMode(mode){
+  switch(mode){
+    case "Dark":
+      if (map.hasLayer(darkMapbox)){
+        //pass
+      } else {
+          if (map.hasLayer(lightMapbox)) {
+            map.removeLayer(lightMapbox);
+          }
+          $('.navbar').removeClass('navbar navbar-expand-lg navbar-light bg-light').addClass('navbar navbar-expand-lg navbar-dark bg-dark');
+          //$('img').each((index, img) => img.style.filter = "invert(1)");
+          darkMapbox.addTo(map)
+      }
+      break;
+    case "Light":
+      if (map.hasLayer(lightMapbox)){
+        //pass
+      } else{
+        if (map.hasLayer(darkMapbox)) {
+          map.removeLayer(darkMapbox);
+        }
+        $('.navbar').removeClass('navbar navbar-expand-lg navbar-dark bg-dark').addClass('navbar navbar-expand-lg navbar-light bg-light');
+        //$('img').each((index, img) => img.style.filter = "invert(0)");
+        lightMapbox.addTo(map);
     }
-    $('.navbar').removeClass('navbar navbar-expand-lg navbar-light bg-light').addClass('navbar navbar-expand-lg navbar-dark bg-dark');
-    $('img').each((index, img) => img.style.filter = "invert(1)");
-    darkMapbox.addTo(map)
-  }});
+      break;
+  }
+}
 
+darkButton.addEventListener("click", () => toggleDarkMode("Dark")); 
+lightButton.addEventListener("click", () => toggleDarkMode("Light"));
