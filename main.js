@@ -1,3 +1,5 @@
+import {hotele, gastronomia, parki, ulubione, tourism, rozrywki} from "./layers.js"
+
 let map = L.map('map').setView([53.33, 15.04], 13);
 
 //basemap jasny
@@ -21,13 +23,13 @@ const darkMapbox = L.tileLayer('https://api.mapbox.com/styles/v1/panmisterek/cl1
 lightMapbox.addTo(map)
 
 //import warstw wektorowych
-import parki from "./data/parki.geojson" assert { type: "json" }
-import hotele from "./data/hotele.geojson" assert { type: "json" }
-import rozrywki from "./data/rozrywki.geojson" assert { type: "json" }
-//import szlakiTurystyczne from "./data/szlaki_turystyczne.geojson" assert { type: "json" } 
-import gastronomia from "./data/gastronomia.geojson" assert { type: "json" }
-import tourism from "./data/tourism.geojson" assert { type: "json" }
-import ulubione from "./data/ulubione.geojson" assert { type : "json" }
+// import parki from "./data/parki.geojson" assert { type: "json" }
+// import hotele from "./data/hotele.geojson" assert { type: "json" }
+// import rozrywki from "./data/rozrywki.geojson" assert { type: "json" }
+// import gastronomia from "./data/gastronomia.geojson" assert { type: "json" }
+// import tourism from "./data/tourism.geojson" assert { type: "json" }
+// import ulubione from "./data/ulubione.geojson" assert { type : "json" }
+
 
 //zmienne z ikonami markerów
 const iconHotel = L.icon({
@@ -62,7 +64,6 @@ const iconUlubione = L.icon({
 
 //przyciski dodawania warstw
 let hotelButton = document.getElementById("hotelButton")
-//let hotelButton = $("#hotelButton")[0]
 let rozrywkiButton = document.getElementById("rozrywkiButton")
 let parkiButton = document.getElementById("parkiButton")
 let gastroButton = document.getElementById("gastroButton")
