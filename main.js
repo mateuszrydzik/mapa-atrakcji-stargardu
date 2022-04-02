@@ -1,3 +1,4 @@
+//import warstw wektorowych z pliku layers.js
 import {hotele, gastronomia, parki, ulubione, tourism, rozrywki} from "./layers.js"
 
 let map = L.map('map').setView([53.33, 15.04], 13);
