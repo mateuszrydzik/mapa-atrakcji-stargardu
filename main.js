@@ -136,43 +136,53 @@ const ulubioneLayer = L.geoJSON(ulubione, {
 
 //domyślną warstwą jest warstwa z obiektami turystycznymi
 tourismLayer.addTo(map)
-
+tourismButton.style.filter = null;
 //eventy do zmiany widoczności warstw
 function addLayers(layer){
   switch(layer){
     case "Hotel":{
       if (map.hasLayer(hotelLayer)){
         map.removeLayer(hotelLayer);
+        hotelButton.style.filter = "brightness(20%)";
       } else {
         hotelLayer.addTo(map);
+        hotelButton.style.filter =  null;
     }
     break;
   } case "Rozrywki":{
       if (map.hasLayer(rozrywkiLayer)){
-        map.removeLayer(rozrywkiLayer)
+        map.removeLayer(rozrywkiLayer);
+        rozrywkiButton.style.filter = "brightness(20%)";
       } else {
         rozrywkiLayer.addTo(map);
+        rozrywkiButton.style.filter = null;
       }
     break;
   } case "Gastro":{
       if (map.hasLayer(gastroLayer)){
         map.removeLayer(gastroLayer)
+        gastroButton.style.filter = "brightness(20%)";
       } else {
         gastroLayer.addTo(map);
+        gastroButton.style.filter = null;
       }
     break;
   } case "Tourism":{
       if (map.hasLayer(tourismLayer)){
-        map.removeLayer(tourismLayer)
+        map.removeLayer(tourismLayer);
+        tourismButton.style.filter = "brightness(20%)";
       } else {
         tourismLayer.addTo(map);
+        tourismButton.style.filter = null;
       }
     break;
   } case "Parki":{
       if (map.hasLayer(parkiLayer)){
         map.removeLayer(parkiLayer);
+        parkiButton.style.filter = "brightness(20%)";
       } else {
         parkiLayer.addTo(map);
+        parkiButton.style.filter = null;
     }
     break;
   } case "Ulubione":

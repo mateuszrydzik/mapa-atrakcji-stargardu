@@ -40,3 +40,8 @@ img{
 .modal-content{
     text-align:justify ;
 }
+
+.layerButton{
+    width: 40px;
+    height: 40px;
+}
